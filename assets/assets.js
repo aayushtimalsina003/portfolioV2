@@ -17,6 +17,7 @@ import mongodb from "./mongodb.png";
 import cSharp from "./cSharp.png";
 import python from "./python.png";
 import django from "./django.png";
+import nodejs from "./nodejs.png";
 import javascript from "./javaScript.png";
 import postgraseSQL from "./postgraseSQL.png";
 import right_arrow_white from "./right-arrow-white.png";
@@ -66,6 +67,7 @@ export const assets = {
   django,
   cSharp,
   javascript,
+  nodejs,
   postgraseSQL,
   right_arrow_white,
   logo,
@@ -96,24 +98,32 @@ export const assets = {
 
 export const workData = [
   {
-    title: "Frontend project",
-    description: "Web Design",
-    bgImage: "/work-1.png",
-  },
-  {
-    title: "Geo based app",
-    description: "Mobile App",
+    title: "ShopSphere",
+    description: "A Ecommerce website",
     bgImage: "/work-2.png",
+    github: "https://github.com/aayushtimalsina003/ecommerce",
+    liveDemo: "noreference",
   },
   {
-    title: "Photography site",
-    description: "Web Design",
+    title: "Prescripto",
+    description: "Appointment Booking System",
+    bgImage: "/work-1.png",
+    github: "https://github.com/aayushtimalsina003/Doctor-appointment-system",
+    liveDemo: "https://myprescripto01.netlify.app",
+  },
+  {
+    title: "Youtube Clone",
+    description: "Youtube clone",
     bgImage: "/work-3.png",
+    github: "https://github.com/aayushtimalsina003/youtube-app",
+    liveDemo: "noreference",
   },
   {
-    title: "UI/UX designing",
-    description: "UI/UX Design",
+    title: "Estate",
+    description: "Real estate application",
     bgImage: "/work-4.png",
+    github: "https://github.com/aayushtimalsina003/real-estate",
+    liveDemo: "https://real-estate-003.netlify.app",
   },
 ];
 
@@ -126,22 +136,9 @@ export const serviceData = [
   },
   {
     icon: assets.mobile_icon,
-    title: "Mobile app",
+    title: "Scalable API",
     description:
-      "Mobile app development involves creating software for mobile devices...",
-    link: "",
-  },
-  {
-    icon: assets.ui_icon,
-    title: "UI/UX design",
-    description:
-      "UI/UX design focuses on creating a seamless user experience...",
-    link: "",
-  },
-  {
-    icon: assets.graphics_icon,
-    title: "Graphics design",
-    description: "Creative design solutions to enhance visual communication...",
+      "Scalable API plays the vital role in maintaining the secutiry......",
     link: "",
   },
 ];
@@ -158,7 +155,8 @@ export const infoList = [
     icon: assets.edu_icon,
     iconDark: assets.edu_icon_dark,
     title: "Education",
-    description: "Bsc.CSIT ",
+    description:
+      "Bachelor of Science In Computer Science and Information Technology (Bsc.CSIT) ",
   },
   {
     icon: assets.project_icon,
@@ -176,8 +174,9 @@ export const toolsData = [
   assets.python,
   assets.javascript,
   assets.cSharp,
-  assets.postgraseSQL,
   assets.django,
+  assets.nodejs,
+  assets.postgraseSQL,
   assets.vscode,
   assets.firebase,
   assets.mongodb,
