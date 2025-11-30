@@ -2,9 +2,9 @@ import { assets } from "@/assets/assets";
 import Image from "next/image";
 import React from "react";
 
-const Footer = (isDarkMode) => {
+const Footer = ({ isDarkMode }) => {
   return (
-    <div className="mt-20">
+    <div className="mt-20 pb-10">
       <div className="text-center">
         <Image
           src={isDarkMode ? assets.logo_dark : assets.logo}
@@ -12,7 +12,7 @@ const Footer = (isDarkMode) => {
           className="w-36 mx-auto mb-2"
         />
 
-        <div className="w-max flex items-center gap-2 mx-auto">
+        <div className="w-max flex items-center gap-2 mx-auto text-gray-600 dark:text-gray-300 font-Inter">
           <Image
             src={isDarkMode ? assets.mail_icon_dark : assets.mail_icon}
             alt=""
@@ -22,11 +22,11 @@ const Footer = (isDarkMode) => {
         </div>
       </div>
 
-      <div className="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6">
-        <p>© 2025 Aayush Timalsina. All rights reserved.</p>
-        <ul className="flex items-center gap-10 justify-center mt-4 sm:mt-0">
+      <div className="text-center sm:flex items-center justify-between border-t border-gray-200 dark:border-gray-700 mx-[10%] mt-12 py-6">
+        <p className="text-gray-600 dark:text-gray-400 font-Inter">© 2025 Aayush Timalsina. All rights reserved.</p>
+        <ul className="flex items-center gap-10 justify-center mt-4 sm:mt-0 text-gray-600 dark:text-gray-400 font-Inter">
           <li>
-            <a target="_blank" href="https://github.com/aayushtimalsina003">
+            <a target="_blank" href="https://github.com/aayushtimalsina003" className="hover:text-accent transition-colors">
               GitHub
             </a>
           </li>
@@ -34,12 +34,13 @@ const Footer = (isDarkMode) => {
             <a
               target="_blank"
               href="https://www.linkedin.com/in/aayush-timalsina-b479742b0"
+              className="hover:text-accent transition-colors"
             >
               LinkedIn
             </a>
           </li>
           <li>
-            <a target="_blank" href="">
+            <a target="_blank" href="" className="hover:text-accent transition-colors">
               Instagram
             </a>
           </li>

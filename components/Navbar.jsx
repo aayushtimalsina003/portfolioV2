@@ -28,56 +28,47 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
       <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden">
         <Image src={assets.header_bg_color} alt="" className="w-full" />
       </div>
+      
       <nav
-        className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 z-50 flex justify-between items-center ${
+        className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 z-50 flex justify-between items-center transition-all duration-300 ${
           isScroll
-            ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm dark:bg-darkTheme dark:shadow-white/20 "
-            : ""
+            ? "bg-white/70 backdrop-blur-lg shadow-md dark:bg-darkTheme/70 dark:shadow-white/10"
+            : "bg-transparent"
         }`}
       >
         <a href="#top">
           <Image
             src={isDarkMode ? assets.logo_dark : assets.logo}
             alt="logo"
-            className="w-28 cursor-pointer mr-14"
+            className="w-28 cursor-pointer mr-14 hover:scale-105 transition-transform duration-300"
           />
         </a>
+        
         <ul
           className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 ${
             isScroll
               ? ""
-              : " bg-white shadow-sm bg-opacity-50 dark:border dark:border-white/50 dark:bg-transparent"
+              : "bg-white/30 shadow-sm backdrop-blur-md border border-white/40 dark:border-white/10 dark:bg-black/20"
           }`}
         >
-          <li>
-            <a className="font-Ovo" href="#top">
-              Home
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo" href="#about">
-              About
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo" href="#services">
-              Services
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo" href="#work">
-              My Work
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo" href="#contact">
-              Contact me
-            </a>
-          </li>
+          {["Home", "About", "My Work", "Contact me"].map((item, index) => (
+            <li key={index}>
+              <a 
+                className="font-Ovo text-sm lg:text-base font-medium hover:text-accent transition-colors relative group" 
+                href={`#${item.toLowerCase().replace(" ", "").replace("me", "") === "home" ? "top" : item.toLowerCase().replace(" ", "").replace("me", "") === "mywork" ? "work" : item.toLowerCase().replace(" ", "").replace("me", "")}`}
+              >
+                {item}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </li>
+          ))}
         </ul>
 
         <div className="flex items-center gap-4">
-          <button onClick={() => setIsDarkMode((prev) => !prev)}>
+          <button 
+            onClick={() => setIsDarkMode((prev) => !prev)}
+            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          >
             <Image
               src={isDarkMode ? assets.sun_icon : assets.moon_icon}
               alt=""
@@ -85,7 +76,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
             />
           </button>
           <a
-            className="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-Ovo dark:border-white/50"
+            className="hidden lg:flex items-center gap-3 px-8 py-2.5 border border-gray-500 rounded-full ml-4 font-medium dark:border-white/50 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 shadow-md hover:shadow-lg"
             href="#contact"
           >
             Contact
@@ -105,44 +96,29 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
         </div>
 
         {/* Mobile Menu */}
-
         <ul
           ref={sideMenuRef}
-          className="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 dark:bg-darkHover dark:text-white"
+          className="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50/95 backdrop-blur-xl transition duration-500 dark:bg-darkHover/95 dark:text-white shadow-2xl"
         >
           <div className="absolute right-6 top-6" onClick={closeMenu}>
             <Image
               src={isDarkMode ? assets.close_white : assets.close_black}
               alt=""
-              className="w-5 cursor-pointer"
+              className="w-5 cursor-pointer hover:rotate-90 transition-transform duration-300"
             />
           </div>
 
-          <li>
-            <a className="font-Ovo" onClick={closeMenu} href="#top">
-              Home
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo" onClick={closeMenu} href="#about">
-              About
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo" onClick={closeMenu} href="#services">
-              Services
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo" onClick={closeMenu} href="#work">
-              My Work
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo" onClick={closeMenu} href="#contact">
-              Contact me
-            </a>
-          </li>
+          {["Home", "About", "My Work", "Contact me"].map((item, index) => (
+            <li key={index}>
+              <a 
+                className="font-Ovo font-medium text-lg hover:text-accent transition-colors" 
+                onClick={closeMenu} 
+                href={`#${item.toLowerCase().replace(" ", "").replace("me", "") === "home" ? "top" : item.toLowerCase().replace(" ", "").replace("me", "") === "mywork" ? "work" : item.toLowerCase().replace(" ", "").replace("me", "")}`}
+              >
+                {item}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
     </>

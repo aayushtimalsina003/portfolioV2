@@ -9,14 +9,10 @@ import Work from "@/components/Work";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
-    if (
-      localStorage.theme == "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-schema: dark)").matches)
-    ) {
+    if (localStorage.theme === "dark" || (!("theme" in localStorage))) {
       setIsDarkMode(true);
     } else {
       setIsDarkMode(false);
@@ -38,7 +34,6 @@ export default function Home() {
       <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <Header isDarkMode={isDarkMode} />
       <About isDarkMode={isDarkMode} />
-      <Services isDarkMode={isDarkMode} />
       <Work isDarkMode={isDarkMode} />
       <Contact isDarkMode={isDarkMode} />
       <Footer isDarkMode={isDarkMode} />
