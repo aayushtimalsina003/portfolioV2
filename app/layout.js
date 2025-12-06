@@ -16,7 +16,13 @@ const inter = Inter({
 
 export const metadata = {
   title: "Portfolio - Aayush",
-  description: "",
+  description: "Backend Developer & AI Engineer - Building intelligent systems with FastAPI, Django, and modern AI tools",
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({ children }) {

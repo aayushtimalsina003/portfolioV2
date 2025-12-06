@@ -9,6 +9,9 @@ const tailwindConfig = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '475px',
+      },
       colors: {
         lightHover: "#fcf4ff",
         darkHover: "#2a004a",

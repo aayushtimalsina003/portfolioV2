@@ -1,16 +1,16 @@
 import { assets } from "@/assets/assets";
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Navbar = ({ isDarkMode, setIsDarkMode }) => {
   const [isScroll, setIsScroll] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const sideMenuRef = useRef();
   const openMenu = () => {
-    sideMenuRef.current.style.transform = "translateX(-16rem)";
+    setIsMenuOpen(true);
   };
   const closeMenu = () => {
-    sideMenuRef.current.style.transform = "translateX(16rem)";
+    setIsMenuOpen(false);
   };
 
   useEffect(() => {
@@ -30,7 +30,8 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
       </div>
       
       <nav
-        className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 z-50 flex justify-between items-center transition-all duration-300 ${
+        className={`w-full fixed px-4 sm:px-5 md:px-6 lg:px-8 xl:px-[8%] py-3 sm:py-4 z-[60] flex justify-between items-center 
+        transition-all duration-300 ${
           isScroll
             ? "bg-white/70 backdrop-blur-lg shadow-md dark:bg-darkTheme/70 dark:shadow-white/10"
             : "bg-transparent"
@@ -40,12 +41,12 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
           <Image
             src={isDarkMode ? assets.logo_dark : assets.logo}
             alt="logo"
-            className="w-28 cursor-pointer mr-14 hover:scale-105 transition-transform duration-300"
+            className="w-24 sm:w-28 cursor-pointer mr-4 sm:mr-8 lg:mr-14 hover:scale-105 transition-transform duration-300"
           />
         </a>
         
         <ul
-          className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 ${
+          className={`hidden md:flex items-center gap-4 md:gap-6 lg:gap-8 rounded-full px-6 md:px-8 lg:px-12 py-2.5 md:py-3 ${
             isScroll
               ? ""
               : "bg-white/30 shadow-sm backdrop-blur-md border border-white/40 dark:border-white/10 dark:bg-black/20"
@@ -54,7 +55,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
           {["Home", "About", "My Work", "Contact me"].map((item, index) => (
             <li key={index}>
               <a 
-                className="font-Ovo text-sm lg:text-base font-medium hover:text-accent transition-colors relative group" 
+                className="font-Ovo text-xs md:text-sm lg:text-base font-medium hover:text-accent transition-colors relative group" 
                 href={`#${item.toLowerCase().replace(" ", "").replace("me", "") === "home" ? "top" : item.toLowerCase().replace(" ", "").replace("me", "") === "mywork" ? "work" : item.toLowerCase().replace(" ", "").replace("me", "")}`}
               >
                 {item}
@@ -76,7 +77,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
             />
           </button>
           <a
-            className="hidden lg:flex items-center gap-3 px-8 py-2.5 border border-gray-500 rounded-full ml-4 font-medium dark:border-white/50 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 shadow-md hover:shadow-lg"
+            className="hidden lg:flex items-center gap-2 lg:gap-3 px-6 lg:px-8 py-2 lg:py-2.5 text-sm lg:text-base border border-gray-500 rounded-full ml-2 lg:ml-4 font-medium dark:border-white/50 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 shadow-md hover:shadow-lg"
             href="#contact"
           >
             Contact
@@ -97,8 +98,9 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
 
         {/* Mobile Menu */}
         <ul
-          ref={sideMenuRef}
-          className="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50/95 backdrop-blur-xl transition duration-500 dark:bg-darkHover/95 dark:text-white shadow-2xl"
+          className={`flex md:hidden flex-col gap-5 py-20 px-8 fixed right-0 top-0 bottom-0 w-64 sm:w-72 z-50 h-screen bg-white/95 
+             backdrop-blur-xl transition-transform duration-500 dark:bg-darkHover/95 dark:text-white shadow-2xl 
+             ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
         >
           <div className="absolute right-6 top-6" onClick={closeMenu}>
             <Image
@@ -111,7 +113,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
           {["Home", "About", "My Work", "Contact me"].map((item, index) => (
             <li key={index}>
               <a 
-                className="font-Ovo font-medium text-lg hover:text-accent transition-colors" 
+                className="font-Ovo font-medium text-base sm:text-lg hover:text-accent transition-colors" 
                 onClick={closeMenu} 
                 href={`#${item.toLowerCase().replace(" ", "").replace("me", "") === "home" ? "top" : item.toLowerCase().replace(" ", "").replace("me", "") === "mywork" ? "work" : item.toLowerCase().replace(" ", "").replace("me", "")}`}
               >

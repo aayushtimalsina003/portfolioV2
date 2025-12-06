@@ -7,13 +7,13 @@ const About = ({ isDarkMode, setIsDarkMode }) => {
   return (
     <motion.div
       id="about"
-      className="w-full px-[12%] py-20 scroll-mt-20"
+      className="w-full px-4 sm:px-6 md:px-8 lg:px-[10%] xl:px-[12%] py-12 sm:py-16 md:py-20 scroll-mt-20"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
       <motion.h4
-        className="text-center mb-2 text-lg font-Ovo text-accent"
+        className="text-center mb-2 text-base sm:text-lg font-Ovo text-accent"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
@@ -21,7 +21,7 @@ const About = ({ isDarkMode, setIsDarkMode }) => {
         Introduction
       </motion.h4>
       <motion.h2
-        className="text-center text-5xl font-Outfit font-bold"
+        className="text-center text-3xl sm:text-4xl md:text-5xl font-Outfit font-bold"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.5 }}
@@ -30,13 +30,13 @@ const About = ({ isDarkMode, setIsDarkMode }) => {
       </motion.h2>
 
       <motion.div
-        className="flex w-full flex-col lg:flex-row items-center justify-center gap-20 my-20"
+        className="flex w-full flex-col lg:flex-row items-center justify-center gap-8 sm:gap-12 md:gap-16 lg:gap-20 my-10 sm:my-12 md:my-16 lg:my-20"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
         <motion.div
-          className="w-64 sm:w-80 rounded-3xl max-w-none relative group"
+          className="w-48 sm:w-56 md:w-64 lg:w-72 xl:w-80 rounded-3xl max-w-none relative group flex-shrink-0"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
@@ -49,36 +49,36 @@ const About = ({ isDarkMode, setIsDarkMode }) => {
           />
         </motion.div>
         <motion.div
-          className="flex-1 flex flex-col justify-center items-center text-center"
+          className="flex-1 flex flex-col justify-center items-center text-center w-full"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <p className="mb-10 max-w-2xl font-Ovo text-lg leading-loose text-gray-600 dark:text-gray-300">
+          <p className="mb-6 sm:mb-8 md:mb-10 max-w-2xl font-Ovo text-sm sm:text-base md:text-lg leading-relaxed sm:leading-loose text-gray-600 dark:text-gray-300 px-2">
             I am an experienced <span className="text-gray-900 dark:text-white font-semibold">Backend Developer</span> with hands-on expertise in <span className="text-gray-900 dark:text-white font-semibold">AI engineering</span>. Over the past year, I have built scalable backend systems while integrating advanced machine learning and computer vision pipelines. I have collaborated with impactful teams and organizations, contributing to high-performance AI-driven products and backend architectures.
           </p>
 
           <motion.ul
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 max-w-2xl mx-auto w-full px-2"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
             {infoList.map(({ icon, iconDark, title, description }, index) => (
               <motion.li
-                className="border border-gray-200 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-2 duration-500 hover:shadow-lg dark:border-white/10 dark:hover:shadow-white/10 dark:hover:bg-darkHover/50 bg-white dark:bg-transparent"
+                className="border border-gray-200 rounded-xl p-4 sm:p-5 md:p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-2 duration-500 hover:shadow-lg dark:border-white/10 dark:hover:shadow-white/10 dark:hover:bg-darkHover/50 bg-white dark:bg-transparent"
                 whileHover={{ scale: 1.02 }}
                 key={index}
               >
                 <Image
                   src={isDarkMode ? iconDark : icon}
                   alt={title}
-                  className="w-7 mt-3 mx-auto"
+                  className="w-6 sm:w-7 mt-2 sm:mt-3 mx-auto"
                 />
-                <h3 className="my-4 font-semibold text-gray-700 dark:text-white font-Outfit">
+                <h3 className="my-3 sm:my-4 font-semibold text-base sm:text-lg text-gray-700 dark:text-white font-Outfit">
                   {title}
                 </h3>
-                <p className="text-gray-600 text-sm dark:text-white/60 font-Inter">
+                <p className="text-gray-600 text-xs sm:text-sm dark:text-white/60 font-Inter">
                   {description}
                 </p>
               </motion.li>
@@ -86,7 +86,7 @@ const About = ({ isDarkMode, setIsDarkMode }) => {
           </motion.ul>
 
           <motion.h4
-            className="my-8 text-gray-700 font-Ovo dark:text-white/80 text-xl"
+            className="my-6 sm:my-8 text-gray-700 font-Ovo dark:text-white/80 text-lg sm:text-xl"
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 1.3 }}
@@ -106,10 +106,10 @@ const About = ({ isDarkMode, setIsDarkMode }) => {
              >
                 {[...toolsData, ...toolsData].map((tool, index) => (
                   <div
-                    className="flex items-center justify-center w-16 h-16 border border-gray-200 rounded-xl bg-white dark:bg-white/5 dark:border-white/10 shadow-sm"
+                    className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 border border-gray-200 rounded-xl bg-white dark:bg-white/5 dark:border-white/10 shadow-sm flex-shrink-0"
                     key={index}
                   >
-                    <Image src={tool} alt="tool" className="w-8 h-8 object-contain" />
+                    <Image src={tool} alt="tool" className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 object-contain" />
                   </div>
                 ))}
              </motion.div>

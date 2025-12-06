@@ -7,8 +7,15 @@
   scroll-behavior: smooth;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   @apply bg-gray-bg text-gray-900 dark:bg-darkTheme dark:text-white transition-colors duration-300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::-webkit-scrollbar {
